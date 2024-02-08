@@ -1,6 +1,21 @@
 # vitejs-investigation
 
-## TLDR; `"hoistingLimits": "dependencies"` breaks the vite deps hashing
+## [EDIT] Solution
+
+> [!NOTE]
+> Problem can be fixed using `resolve.dedupe` see [vitejs/vite/issues/15829](https://github.com/vitejs/vite/issues/15829#issuecomment-1933515352)
+
+`solution`
+
+```json
+{
+  "resolve": {
+    "dedupe": ["picocolors"]
+  }
+}
+```
+
+## `"hoistingLimits": "dependencies"` breaks the vite deps hashing
 
 `"hoistingLimits"` change the way vite compute dynamic dependency hash.
 
